@@ -12,11 +12,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float  _cachedY;
     private bool _canDoubleJump = false ;
     [SerializeField] private int _playerCoins;
+    private UIManager _uiManager;
+
 
     void Start()
     {
         _controller = GetComponent<CharacterController>();
-        
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
     }
 
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
     public void GiveCoin()
     {
         _playerCoins += 1;
+        _uiManager.UpdateCoincount(_playerCoins);
         Debug.Log(_playerCoins);
     }
 
