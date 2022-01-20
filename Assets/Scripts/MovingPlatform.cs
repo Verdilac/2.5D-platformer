@@ -17,7 +17,7 @@ public class MovingPlatform : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if(_changeDirection == false)
         {
@@ -42,10 +42,25 @@ public class MovingPlatform : MonoBehaviour
         {
             _changeDirection = false;
         }
-
-
-    
-
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            other.transform.parent = this. transform;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            other.transform.parent = null;
+        }
+    }
+
+
+
 }

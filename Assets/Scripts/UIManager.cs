@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
 
     [SerializeField] private Text _coinText;
+    [SerializeField] private Text _livesText;
     public void UpdateCoincount(int coins)
     {
 
@@ -14,6 +15,10 @@ public class UIManager : MonoBehaviour
 
     }
     
+    public void UpdateLives(int lives)
+    {
+        _livesText.text = "Lives" + lives;
+    }
 
 
 
